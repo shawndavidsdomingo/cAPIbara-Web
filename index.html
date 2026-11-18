@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cAPIbara: Your Handy Capybara</title>
+<meta name="description" content="cAPIbara is a desktop app that shortens links, drafts SMS and email, and generates fake data, with secure accounts.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐹</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDEDEA; --card:#F5F5F2; --line:#D6D5D0; --ink:#2B2B2B; --muted:#6B6B68;
+  --slate:#4A4F57; --slate-d:#3A3E45; --sage:#5B7F5E; --sage-l:#DCE6DC; --clay:#A3524A;
+  --head:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;
+  --body:"Public Sans","Segoe UI","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
+p{margin:0}
+
+/* top bar */
+header{padding:20px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font:800 22px var(--head);text-decoration:none;letter-spacing:-.01em}
+nav{display:flex;gap:22px;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:40px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(40px,6vw,68px);font-weight:800;letter-spacing:-.03em}
+.hero p.lead{margin-top:20px;font-size:19px;color:var(--slate);max-width:44ch}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;padding:12px 22px;border-radius:4px;background:var(--slate);color:var(--card);text-decoration:none;font-weight:600}
+.btn:hover{background:var(--slate-d)}
+.btn.alt{background:transparent;color:var(--slate);border:1px solid var(--line)}
+.btn.alt:hover{background:#E3E3DF}
+
+/* app window mock (the memorable part) */
+.win{background:var(--card);border:1px solid var(--line);border-radius:8px;box-shadow:0 24px 50px -28px rgba(43,43,43,.55);overflow:hidden;font-size:13px}
+.bar{background:#E3E3DF;border-bottom:1px solid var(--line);padding:8px 12px;display:flex;align-items:center;gap:6px}
+.bar i{width:10px;height:10px;border-radius:50%;background:#C4C4BF;display:block}
+.bar span{margin-left:8px;color:var(--muted);font-size:12px}
+.app{display:grid;grid-template-columns:150px 1fr}
+.side{background:var(--bg);border-right:1px solid var(--line);padding:12px 10px}
+.side small{display:block;color:var(--muted);margin-bottom:8px;font-size:11px}
+.side div{padding:6px 8px;border-radius:4px;color:var(--slate)}
+.side div.on{background:#DCDCD7;color:var(--ink);font-weight:600}
+.main{padding:14px 16px;min-width:0}
+.main b{font:700 15px var(--head)}
+.row{display:grid;grid-template-columns:1fr 1.3fr auto;gap:8px;padding:7px 0;border-bottom:1px solid #E3E3DF;align-items:center}
+.row.head{color:var(--muted);font-size:12px;font-weight:600}
+.row span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .s{color:var(--sage);font-weight:600}
+.note{margin-top:10px;display:inline-block;background:var(--sage-l);color:#3F5F42;padding:4px 10px;border-radius:4px;font-size:12px}
+
+/* sections */
+section{padding:72px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.02em;max-width:20ch}
+.intro{margin-top:14px;color:var(--slate);max-width:60ch}
+
+/* features: alternating rows, not a card grid */
+.feat{display:grid;grid-template-columns:240px 1fr;gap:12px 48px;padding:28px 0;border-bottom:1px solid var(--line)}
+.feat:last-child{border-bottom:0}
+.feat h3{font-size:22px;font-weight:700}
+.feat ul{margin:0;padding-left:18px;color:var(--slate)}
+.feat li{margin:4px 0}
+.feats{margin-top:32px}
+
+/* status */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px}
+.box h3{font-size:20px;margin-bottom:12px}
+.box ul{margin:0;padding:0;list-style:none}
+.box li{padding:7px 0 7px 26px;position:relative;border-bottom:1px solid #E3E3DF}
+.box li:last-child{border-bottom:0}
+.done li::before{content:"✓";position:absolute;left:0;color:var(--sage);font-weight:700}
+.next li::before{content:"○";position:absolute;left:0;color:var(--muted)}
+
+/* tech + team */
+.tech{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.tech span{border:1px solid var(--line);background:var(--card);padding:6px 14px;border-radius:999px;font-size:14px}
+
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:860px){
+  .hero .wrap,.cols,.feat{grid-template-columns:1fr}
+  .feat{gap:8px}
+  nav{display:none}
+}
+@media (max-width:480px){
+  .app{grid-template-columns:1fr}
+  .side{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">cAPIbara</a>
+    <nav aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#status">Progress</a>
+      <a href="#built">Built with</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Your handy capybara for everyday web tasks.</h1>
+        <p class="lead">cAPIbara is a desktop app that shortens links, drafts SMS and email, and generates fake data. Everything sits behind your own account.</p>
+        <div class="btns">
+          <!-- TODO: replace with your real repository link -->
+          <a class="btn" href="https://github.com/YOUR-USERNAME/YOUR-REPO">View on GitHub</a>
+          <a class="btn alt" href="#features">See what it does</a>
+        </div>
+      </div>
+
+      <div class="win" role="img" aria-label="Preview of the cAPIbara URL Shortening page">
+        <div class="bar"><i></i><i></i><i></i><span>cAPIbara: Your Handy Capybara</span></div>
+        <div class="app">
+          <div class="side">
+            <small>Logged in as: juan_cruz</small>
+            <div>Dashboard</div>
+            <div class="on">URL Shortening</div>
+            <div>SMS and Email</div>
+            <div>Fake Data</div>
+            <div>Profile</div>
+          </div>
+          <div class="main">
+            <b>URL Shortening</b>
+            <div class="note">Already shortened. Moved to the top.</div>
+            <div class="row head"><span>Short URL ▲</span><span>Original URL</span><span>Clicks</span></div>
+            <div class="row"><span class="s">ulvis.net/a1B2c</span><span>example.com/capibara-test</span><span>3</span></div>
+            <div class="row"><span class="s">ulvis.net/x9Yz4</span><span>neu.edu.ph/college-of-computer-studies</span><span>0</span></div>
+            <div class="row"><span class="s">ulvis.net/Qw7Er</span><span>github.com/your-team/capibara</span><span>1</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>Four tools, one login</h2>
+      <p class="intro">Sign in once and move between tools from the sidebar. Your links, drafts and settings belong to your account only.</p>
+
+      <div class="feats">
+        <div class="feat">
+          <h3>URL Shortening</h3>
+          <ul>
+            <li>Paste a full link and get a short one from the Ulvis service.</li>
+            <li>Shorten the same link twice and it moves to the top instead of duplicating.</li>
+            <li>Click any link in your history to copy it, or press Open to visit it.</li>
+            <li>Search by short or original link, and sort by short link, original link or date.</li>
+            <li>The window never freezes, even when the connection is slow or offline.</li>
+          </ul>
+        </div>
+        <div class="feat">
+          <h3>SMS and Email</h3>
+          <ul>
+            <li>Write messages in separate SMS and Email tabs.</li>
+            <li>Save drafts, reopen them later, and see a Sent list.</li>
+            <li>A live counter shows the 160-character SMS limit.</li>
+            <li>The app asks before you leave with unsaved text.</li>
+          </ul>
+        </div>
+        <div class="feat">
+          <h3>Fake Data Generator</h3>
+          <ul>
+            <li>Create 10 to 1,000 sample people per batch, each with 10 fields such as name, address, birthdate and email.</li>
+            <li>Keep a history of batches, and delete one or clear them all.</li>
+            <li>Sort any column, then export exactly what you see to Excel.</li>
+          </ul>
+        </div>
+        <div class="feat">
+          <h3>Accounts and Profile</h3>
+          <ul>
+            <li>Register with an email code before the account is created.</li>
+            <li>Passwords are stored as a random salt and a PBKDF2-SHA256 hash, never as plain text.</li>
+            <li>Change your name, email or password from the Profile page.</li>
+            <li>A dashboard shows your totals: emails, texts, links and generations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="status">
+    <div class="wrap">
+      <h2>Where the project stands</h2>
+      <p class="intro">cAPIbara is built in weekly sprints. About half of it is done.</p>
+      <div class="cols">
+        <div class="box done">
+          <h3>Working now</h3>
+          <ul>
+            <li>Sprint 1: accounts, login, SQLite storage, secure password hashing</li>
+            <li>Sprint 2: Ulvis link shortening with saved history, search, sort and click copy</li>
+            <li>Dashboard, profile editing and the SMS/Email draft screens</li>
+            <li>Fake data generator with sorting and Excel export</li>
+          </ul>
+        </div>
+        <div class="box next">
+          <h3>Coming next</h3>
+          <ul>
+            <li>Sprint 3: real email and SMS providers (today, sending is a demo and nothing leaves the app)</li>
+            <li>Sprint 4: fake data and message counters saved in the database</li>
+            <li>Interface polish: show/hide password, inline field errors, smaller-screen sizing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="built">
+    <div class="wrap">
+      <h2>Built with</h2>
+      <p class="intro">A Python desktop app with a small, plain structure: screens call services, and only the services touch the database.</p>
+      <div class="tech">
+        <span>Python</span><span>PySide6</span><span>SQLite</span><span>Requests</span><span>openpyxl</span><span>pytest</span><span>Ulvis API</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>cAPIbara · BSIT 2BSIT-3 · College of Computer Studies, New Era University</span>
+    <span>A school project in progress.</span>
+  </div>
+</footer>
+
+</body>
+</html>
