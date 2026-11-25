@@ -6,6 +6,9 @@
 <title>cAPIbara: Your Handy Capybara</title>
 <meta name="description" content="cAPIbara is a free desktop app that shortens links, sends texts and emails, keeps your contacts and generates sample data, all behind one secure login.">
 <link rel="icon" href="assets/icon.png">
+<meta property="og:title" content="cAPIbara: Your Handy Capybara">
+<meta property="og:description" content="Shorten links, send texts and emails, keep contacts and make sample data in one desktop app.">
+<meta property="og:image" content="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
@@ -45,7 +48,7 @@ nav a.pill{background:var(--paper);color:var(--cap-d);padding:8px 18px;border-ra
 .btn:hover{background:var(--fur-l)}
 .btn.ghost{background:transparent;border:1.5px solid #B59A82;color:#fff}
 .btn.ghost:hover{background:rgba(255,255,255,.1)}
-.small{margin-top:14px;font-size:14px;color:#CDB8A3}
+.small{margin-top:14px;font-size:14px;color:#E3D3C2}
 .mascot{position:relative;display:flex;justify-content:center}
 .mascot::before{content:"";position:absolute;width:86%;aspect-ratio:1;border-radius:50%;background:var(--cap-d);top:6%}
 .mascot img{position:relative;width:min(100%,380px);height:auto;filter:drop-shadow(0 22px 24px rgba(0,0,0,.28));animation:bob 5s ease-in-out infinite}
@@ -59,7 +62,7 @@ nav a.pill{background:var(--paper);color:var(--cap-d);padding:8px 18px;border-ra
 
 /* powered by */
 .powered{padding:34px 0 8px;text-align:center;color:var(--muted);font-size:15px}
-.powered ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 34px;font:700 17px var(--head);color:#8095A6}
+.powered ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 34px;font:700 17px var(--head);color:var(--muted)}
 
 section{padding:84px 0}
 h2{font-size:clamp(26px,3.6vw,38px);max-width:22ch}
@@ -73,7 +76,7 @@ h2{font-size:clamp(26px,3.6vw,38px);max-width:22ch}
 .copy ul{margin:18px 0 0;padding:0;list-style:none}
 .copy li{padding:6px 0 6px 28px;position:relative}
 .copy li::before{content:"";position:absolute;left:0;top:14px;width:14px;height:8px;border-left:3px solid var(--sage);border-bottom:3px solid var(--sage);transform:rotate(-45deg) scale(.85)}
-.panel{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 30px 50px -34px rgba(10,47,79,.45);font-size:14px}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 30px 50px -34px rgba(59,47,42,.35);font-size:14px}
 .panel .ph{display:flex;gap:6px;margin-bottom:14px}
 .panel .ph i{width:9px;height:9px;border-radius:50%;background:var(--line)}
 .lr{display:grid;grid-template-columns:1fr 1.4fr auto;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);align-items:center}
@@ -153,8 +156,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
         <a href="#tools">What it does</a>
         <a href="#how">How it works</a>
         <a href="#faq">Questions</a>
-        <!-- TODO: replace with your real repository link -->
-        <a class="pill" href="https://github.com/YOUR-USERNAME/YOUR-REPO/releases">Get the app</a>
+        <a class="pill" href="https://github.com/shawndavidsdomingo/cAPIbara-Your-Handy-Capybara-">Get the app</a>
       </nav>
     </div>
 
@@ -163,10 +165,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
         <h1>The little toolbox for your everyday web chores.</h1>
         <p class="lead">Shorten links, send texts and emails, keep your contacts and make sample data. One desktop app, one secure login, no browser tabs.</p>
         <div class="btns">
-          <a class="btn" href="https://github.com/YOUR-USERNAME/YOUR-REPO/releases">Download for free</a>
+          <a class="btn" href="https://github.com/shawndavidsdomingo/cAPIbara-Your-Handy-Capybara-">Get it on GitHub</a>
           <a class="btn ghost" href="#tools">See the tools</a>
         </div>
-        <p class="small">For Windows, macOS and Linux. Python 3.10 or newer.</p>
+        <p class="small">Runs on Windows, macOS and Linux with Python 3.10 or newer.</p>
       </div>
       <div class="mascot">
         <img src="assets/logo.png" alt="The cAPIbara capybara in a blue cap, holding a hammer" width="380" height="430">
@@ -220,8 +222,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
       </div>
       <div class="panel" role="img" aria-label="Preview of the SMS composer">
         <div class="ph"><i></i><i></i><i></i></div>
-        <div class="field">0917 123 4567</div>
-        <div class="field t">Hi Maria, the files are ready for pickup.<span class="cnt">38 / 160</span></div>
+        <div class="field">09171234567</div>
+        <div class="field t">Hi Maria, the files are ready for pickup.<span class="cnt">41 / 160</span></div>
         <span class="send">Send SMS</span>
       </div>
     </div>
@@ -270,9 +272,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   <div class="wrap">
     <h2>Up and running in three steps</h2>
     <div class="steps">
-      <div class="step"><h3>Install</h3><p>Download the app, run <code>pip install -r requirements.txt</code> and start it with <code>python main.py</code>.</p></div>
+      <div class="step"><h3>Install</h3><p>Get the code from GitHub, run <code>pip install -r requirements.txt</code> and start it with <code>python main.py</code>.</p></div>
       <div class="step"><h3>Create your account</h3><p>Sign up and confirm your email with a six-digit code. Then log in with your username or email.</p></div>
-      <div class="step"><h3>Add your keys, if you like</h3><p>Paste a Brevo or TextBee key into a <code>.env</code> file to send for real. Without keys, the app runs in demo mode.</p></div>
+      <div class="step"><h3>Add your keys, if you like</h3><p>Paste a Brevo or TextBee key into a <code>.env</code> file to send for real. Without keys, verification codes show on screen and sending stays off.</p></div>
     </div>
   </div>
 </section>
@@ -284,7 +286,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     <div class="trust">
       <div class="tcard"><h3>Passwords never stored as typed</h3><p>Each password is kept as a random salt and a PBKDF2-SHA256 hash. Forgot yours? A one-time code goes to the email on the account.</p></div>
       <div class="tcard"><h3>Your data stays on your computer</h3><p>Links, drafts, contacts and generated data live in a local database next to the app. Other accounts cannot see yours.</p></div>
-      <div class="tcard"><h3>Easy on the eyes</h3><p>Zoom the whole app with Ctrl and the mouse wheel, or Ctrl with plus, minus and zero. It remembers your size.</p></div>
+      <div class="tcard"><h3>Easy on the eyes</h3><p>Zoom the whole app with Ctrl and the mouse wheel, or Ctrl with plus, minus and zero, and press F11 for full screen. It remembers your zoom.</p></div>
     </div>
   </div>
 </section>
@@ -294,7 +296,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     <h2>Questions people ask</h2>
     <div class="faq">
       <details><summary>Is it really free?</summary><p>Yes. cAPIbara is a free desktop app. The outside services it connects to may have their own limits or plans.</p></details>
-      <details><summary>Do I need accounts with Brevo or TextBee?</summary><p>Only if you want to send real emails or texts. Without keys, the app still works in demo mode and nothing leaves your computer.</p></details>
+      <details><summary>Do I need accounts with Brevo or TextBee?</summary><p>Only if you want to send real emails or texts. Without keys, the app still opens and works, but verification codes show on screen and no messages are sent.</p></details>
       <details><summary>Can I text any number?</summary><p>Texts support Philippine mobile numbers in the 09XXXXXXXXX format, and they send from the Android phone linked to your TextBee account.</p></details>
       <details><summary>Does "sent" mean the message arrived?</summary><p>Not always. It means the service accepted it. Delivery depends on the phone, the network and the carrier, and emails can land in spam.</p></details>
       <details><summary>Can I get my data out?</summary><p>Yes. Generated data exports to Excel, CSV or JSON. Everything else sits in a local database file you control.</p></details>
@@ -308,8 +310,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
       <img src="assets/logo.png" alt="" width="150" height="170">
       <div>
         <h2>Put the capybara to work.</h2>
-        <p>Free to download, quick to set up, and ready for your next link, message or batch of data.</p>
-        <a class="btn" href="https://github.com/YOUR-USERNAME/YOUR-REPO/releases">Download cAPIbara</a>
+        <p>Free, quick to set up, and ready for your next link, message or batch of data.</p>
+        <a class="btn" href="https://github.com/shawndavidsdomingo/cAPIbara-Your-Handy-Capybara-">Get cAPIbara on GitHub</a>
       </div>
     </div>
   </div>
@@ -318,7 +320,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 <footer>
   <div class="wrap">
     <span>cAPIbara: Your Handy Capybara. Made by Domingo and Gloria, 3BSIT-1, College of Informatics and Computer Studies, New Era University.</span>
-    <a href="https://github.com/YOUR-USERNAME/YOUR-REPO">Source on GitHub</a>
+    <a href="https://github.com/shawndavidsdomingo/cAPIbara-Your-Handy-Capybara-">Source on GitHub</a>
   </div>
 </footer>
 
